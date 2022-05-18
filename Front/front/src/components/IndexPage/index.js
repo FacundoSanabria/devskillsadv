@@ -26,7 +26,7 @@ function Index() {
     return (
         <div className='container p-3'>
             <div className='row'>
-                <div className="card">
+                <div className="card" id="main-card">
                     <div className="card-body">
                         <div className="container">
                             <div className="row">

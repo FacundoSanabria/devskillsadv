@@ -2,18 +2,16 @@ import React from 'react'
 
 function Header() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav">
-                    <li className="nav-item active">
-                        <a className="nav-link" href="/">Home</a>
-                    </li>
-                    <li className="nav-item active">
-                        <a className="nav-link" href="/Other">Other Page</a>
-                    </li>
-                </ul>
+        <div id='header'>
+            <div className="row w-100">
+                <div className="col text-center border">
+                    <a className="nav-link" href="/">HOME</a>
+                </div>
+                <div className="col text-center border">
+                    <a className="nav-link" href="/Other">OTHER PAGE</a>
+                </div>
             </div>
-        </nav>
+        </div>
     )
 }
 export default Header;
