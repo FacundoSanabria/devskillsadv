@@ -9,6 +9,17 @@ function MembersForm(props) {
     const [lastName, setLastName] = useState("");
     const [address, setAddress] = useState("");
     const [ssn, setSsn] = useState("");
+    const [isSubmitEnabled, setIsSubmitEnabled] = useState(false);
+
+    useEffect(()=>{ 
+        //validation
+        setIsSubmitEnabled(
+            firstName.length > 1 &&
+            lastName.length > 1 &&
+            address.length > 1 &&
+            /^\d{3}-?\d{2}-?\d{4}$/.test(ssn)
+        );
+    },[firstName, lastName, address, ssn]); 
 
     const handleSubmit = ()=>{
         const headers = {headers:{ Authorization: 'Bearer '+token}};
@@ -77,6 +88,7 @@ function MembersForm(props) {
                         >Reset
                     </button>
                     <button type="submit" className="btn btn-primary"
+                        disabled={!isSubmitEnabled}
                         onClick={(e)=>{handleSubmit()}}
                         >Submit
                     </button>
