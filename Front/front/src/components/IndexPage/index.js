@@ -3,7 +3,7 @@ import axios from "axios";
 import { API } from '../../Endpoints';
 import MembersForm from './Partials/MembersForm';
 import MembersTable from './Partials/MembersTable';
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsIm5hbWUiOiJzYXJhaCIsImFkbWluIjpmYWxzZSwiaWF0IjoxNjUyOTA5MzA1LCJleHAiOjE2NTI5MTAyMDV9.7oZogdr3rvOyoUv2Rkt9x7pVdS76EgU1nzAJFjDyrxA';
+import { token } from '../../helpers';
 
 function Index() {
     const [members, setMembers] = useState([])
@@ -18,6 +18,10 @@ function Index() {
             console.log(err);
         })
     },[]);
+    
+    const onMemberCreatedHandler = (newMember) =>{
+        setMembers([...members, newMember]);
+    }
 
     return (
         <div className='container p-3'>
@@ -27,7 +31,9 @@ function Index() {
                         <div className="container">
                             <div className="row">
                                 <div className="col">
-                                    <MembersForm/>
+                                    <MembersForm
+                                        onMemberCreated={(m)=>{onMemberCreatedHandler(m)}}
+                                    />
                                 </div>
                                 <div className="col">
                                     <MembersTable
