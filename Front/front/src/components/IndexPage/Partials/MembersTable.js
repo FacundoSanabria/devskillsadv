@@ -1,39 +1,39 @@
 import React from 'react'
+import Spinner from '../../Partials/Spinner';
 
-function MembersTable() {
+function MembersTable(props) {
     return (
         <div className="card">
             <div className="card-body">
-                <table className="table">
-                    <thead>
-                        <tr>                       
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">SSN</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
+                {
+                    props.members.legth === 0 ?
+                        <Spinner/>
+                    :
+                        <table className="table">
+                            <thead>
+                                <tr>                       
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">SSN</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    props.members.map((member,index)=>{
+                                        return(
+                                            <tr key={index}>
+                                                <td>{member.firstName}</td>
+                                                <td>{member.lastName}</td>
+                                                <td>{member.address}</td>
+                                                <td>{member.ssn}</td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </tbody>
+                        </table>
+                    }
             </div>
         </div>
     )
