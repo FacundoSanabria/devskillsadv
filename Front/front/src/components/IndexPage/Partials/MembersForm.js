@@ -22,6 +22,7 @@ function MembersForm(props) {
         .then(res=>{
             props.onMemberCreated(res.data);
             toast.success("Member Added");
+            resetForm();
         })
         .catch(err =>{
             toast.error(err.response.data.message);
@@ -29,6 +30,10 @@ function MembersForm(props) {
     }
 
     const handleReset = ()=>{
+        resetForm();
+    }
+
+    const resetForm = ()=>{
         setFirstName("");
         setLastName("");
         setAddress("");
