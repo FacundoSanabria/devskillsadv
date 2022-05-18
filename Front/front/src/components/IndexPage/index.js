@@ -8,7 +8,7 @@ import { token } from '../../helpers';
 function Index() {
     const [members, setMembers] = useState([])
 
-    useEffect(()=>{
+    useEffect(()=>{ 
         axios.get(API.GET_MEMBERS, {headers:{ Authorization: 'Bearer '+token}})
         .then(res=>{
             setMembers(res.data);

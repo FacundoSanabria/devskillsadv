@@ -26,6 +26,13 @@ function MembersForm(props) {
         })
     }
 
+    const handleReset = ()=>{
+        setFirstName("");
+        setLastName("");
+        setAddress("");
+        setSsn("");
+    }
+
     return (
         <div className="card">
             <div className="card-body">
@@ -58,9 +65,14 @@ function MembersForm(props) {
                             onChange={(e)=>{setSsn(e.target.value)}}
                         />
                     </div>
+                    <button type="submit" className="btn btn-danger me-2"
+                        onClick={(e)=>{handleReset()}}
+                        >Reset
+                    </button>
                     <button type="submit" className="btn btn-primary"
                         onClick={(e)=>{handleSubmit()}}
-                    >Submit</button>
+                        >Submit
+                    </button>
                 </div>
             </div>
         </div>
