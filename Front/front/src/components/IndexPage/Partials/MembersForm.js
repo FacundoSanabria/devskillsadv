@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
 import axios from "axios";
+import toast from 'react-hot-toast';
 import { API } from '../../../Endpoints';
 import { token } from '../../../helpers';
 
@@ -20,9 +21,10 @@ function MembersForm(props) {
         axios.post(API.POST_MEMBER, data, headers)
         .then(res=>{
             props.onMemberCreated(res.data);
+            toast.success("Member Added");
         })
-        .catch(err=>{
-            console.log(err);
+        .catch(err =>{
+            toast.error(err.response.data.message);
         })
     }
 
