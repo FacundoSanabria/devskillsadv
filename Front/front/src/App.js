@@ -7,6 +7,8 @@ import Main from './components/Layout/Main';
 import { axiosInterceptors } from './AxiosInterceptors';
 
 function App() {
+  axiosInterceptors() //intercepta las llamadas axios y se encarga de el manejo de los tokens
+
   return (
     <div className="App">
       <Header/>
