@@ -9,15 +9,15 @@ function Index() {
     const [members, setMembers] = useState([])
 
     useEffect(()=>{ 
-        axios.get(API.GET_MEMBERS, {headers:{ Authorization: 'Bearer '+token}})
+        axios.get(API.GET_MEMBERS)
         .then(res=>{
             setMembers(res.data);
             console.log(res.data);
         })
         .catch(err=>{
             console.log(err);
-        })
-    },[]);
+        })  
+    }, []);
     
     const onMemberCreatedHandler = (newMember) =>{
         setMembers([...members, newMember]);

@@ -22,14 +22,13 @@ function MembersForm(props) {
     },[firstName, lastName, address, ssn]); 
 
     const handleSubmit = ()=>{
-        const headers = {headers:{ Authorization: 'Bearer '+token}};
         const data = {
             firstName: firstName,
             lastName: lastName,
             address: address,
             ssn: ssn
         }
-        axios.post(API.POST_MEMBER, data, headers)
+        axios.post(API.POST_MEMBER, data)
         .then(res=>{
             props.onMemberCreated(res.data);
             toast.success("Member Added");
