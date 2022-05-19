@@ -1,5 +1,5 @@
 import React from 'react'
-import toast, {Toaster, toaster} from 'react-hot-toast';
+import {Toaster} from 'react-hot-toast';
 
 function Main(props) {
     return (

@@ -1,5 +1,4 @@
-import './App.css';
-import React, { useEffect } from 'react'
+import React from 'react'
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 import Router from './components/Router';
