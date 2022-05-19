@@ -8,15 +8,23 @@ function Home() {
     const [members, setMembers] = useState([])
 
     useEffect(()=>{ 
+        getMembers();  
+    }, []);
+
+    useEffect(()=>{ 
+        setTimeout(getMembers, 120000)
+    }, [members]); 
+
+    const getMembers = () =>{
         axios.get(API.GET_MEMBERS)
         .then(res=>{
             setMembers(res.data);
-            console.log(res.data);
+            console.log("members")
         })
         .catch(err=>{
             console.log(err);
-        })  
-    }, []);
+        }) 
+    }
     
     const onMemberCreatedHandler = (newMember) =>{
         setMembers([...members, newMember]);

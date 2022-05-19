@@ -33,8 +33,10 @@ export const axiosInterceptors = ()=>{
         }
     ) 
  
-    axios.interceptors.response.use(
-        undefined, 
+      axios.interceptors.response.use(
+        function (response) {
+            return response;
+        },
         async err => {
             const originalConfig = err.config;
             if(err.response.status === 401 && err.response.data.message === 'The token has expired'){
@@ -58,5 +60,5 @@ export const axiosInterceptors = ()=>{
             }
             return Promise.reject(err);
         }
-    )  
+    )    
 }
