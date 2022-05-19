@@ -3,9 +3,8 @@ import axios from "axios";
 import { API } from '../../Endpoints';
 import MembersForm from './Partials/MembersForm';
 import MembersTable from './Partials/MembersTable';
-import { token } from '../../helpers';
 
-function Index() {
+function Home() {
     const [members, setMembers] = useState([])
 
     useEffect(()=>{ 
@@ -48,4 +47,4 @@ function Index() {
         </div>
     )
 }
-export default Index;
+export default Home;

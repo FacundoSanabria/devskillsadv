@@ -2,7 +2,6 @@ import React, {useState, useEffect, useRef} from 'react'
 import axios from "axios";
 import toast from 'react-hot-toast';
 import { API } from '../../../Endpoints';
-import { token } from '../../../helpers';
 
 function MembersForm(props) {
     const [firstName, setFirstName] = useState("");
